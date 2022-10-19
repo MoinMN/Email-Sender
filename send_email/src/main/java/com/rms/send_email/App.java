@@ -112,7 +112,7 @@ public class App extends JFrame implements ActionListener	{
 		file.setBounds(40, 300, 150, 50);
 		frame.add(file);
 		
-		//attachment textfield
+		//attachment text field
 		textFile.setBounds(165, 300, 500, 40);
 		textFile.setLayout(null);
 		textFile.setFont(myFontText);
@@ -171,21 +171,7 @@ public class App extends JFrame implements ActionListener	{
 				//sending info sendAttach method
 				sendAttach(message, subject, to, from, path, password);
 				
-				//pop up 
-				int response = JOptionPane.showConfirmDialog(null, "Do you want to send another mail?", "Mail sended Successfully!",
-				        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-				if (response == JOptionPane.NO_OPTION) {
-				      System.exit(0);
-				    } else if (response == JOptionPane.YES_OPTION) {
-				      textTo.setText("");
-				      textSubject.setText("");
-				      textMsg.setText("");
-				      textFile.setText("");
-				      textFrom.setText("");
-				      textPassword.setText("");
-				    } else if (response == JOptionPane.CLOSED_OPTION) {
-				      System.exit(0);
-				    }
+				
 				
 			}
 
@@ -206,6 +192,7 @@ public class App extends JFrame implements ActionListener	{
 				
 
 				//to get the session object...
+				
 				Session session = Session.getInstance(properties, new Authenticator() {
 					@Override
 					protected PasswordAuthentication getPasswordAuthentication() {
@@ -214,6 +201,7 @@ public class App extends JFrame implements ActionListener	{
 						//itwcfhfazjqdgolm
 					}
 				});
+				
 				//session.setDebug(true);	to display the debuging
 				
 				
@@ -250,7 +238,7 @@ public class App extends JFrame implements ActionListener	{
 						mimeMultipart.addBodyPart(fileMime);
 						
 					}	catch(Exception e)	{
-						
+						JOptionPane.showMessageDialog(null, "Wrong details entered!");
 					}
 					
 					if(path.isBlank())	{	
@@ -261,10 +249,24 @@ public class App extends JFrame implements ActionListener	{
 					
 					//send message using transport class
 					Transport.send(m);
-					
+					//pop up 
+					int response = JOptionPane.showConfirmDialog(null, "Do you want to send another mail?", "Mail sended Successfully!",
+					        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+					if (response == JOptionPane.NO_OPTION) {
+					      System.exit(0);
+					    } else if (response == JOptionPane.YES_OPTION) {
+					      textTo.setText("");
+					      textSubject.setText("");
+					      textMsg.setText("");
+					      textFile.setText("");
+					      textFrom.setText("");
+					      textPassword.setText("");
+					    } else if (response == JOptionPane.CLOSED_OPTION) {
+					      System.exit(0);
+					    }
 					
 				} catch(Exception e) {
-					e.printStackTrace();
+					JOptionPane.showMessageDialog(null, "Incorrect ID, Password");
 				}
 			} 
 		});
@@ -278,7 +280,8 @@ public class App extends JFrame implements ActionListener	{
     }
 
 	public void actionPerformed(ActionEvent e) {
-		
+		if(textSubject.getText().isEmpty() || textMsg.getText().isEmpty() || textTo.getText().isEmpty() || textFrom.getText().isEmpty() || textPassword.getText().isEmpty())
+			JOptionPane.showMessageDialog(null, "The Field is Empty.");
 		
 	}
 }
