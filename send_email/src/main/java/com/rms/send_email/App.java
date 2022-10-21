@@ -199,6 +199,7 @@ public class App extends JFrame implements ActionListener	{
 						return new PasswordAuthentication(from, password);	
 						//javaemailtest001@gmail.com						
 						//itwcfhfazjqdgolm
+						//dshbgpysenukbbup
 					}
 				});
 				
@@ -241,11 +242,12 @@ public class App extends JFrame implements ActionListener	{
 						JOptionPane.showMessageDialog(null, "Wrong details entered!");
 					}
 					
-					if(path.isBlank())	{	
+					if(path.isBlank())	{
 						//checking weather attachment is enter or not
 					}
-					else
+					else	
 						m.setContent(mimeMultipart);
+					
 					
 					//send message using transport class
 					Transport.send(m);
