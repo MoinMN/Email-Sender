@@ -1,6 +1,7 @@
 ### Email-Sender
 - Email Sender Application using Java Swing<br>
 - we used in this project is java swing and api of javaMail API <br>
+- Download .exe file by clicking [here](https://www.mediafire.com/file/4e12asidqggbeta/Mmail.exe/file)<br>
 - Click [here](https://github.com/MoinMN/Email-Sender/files/9841397/Java.Mini.Project.pptx) to download PPT of this Project<br>
 - Click [here](https://github.com/MoinMN/Email-Sender/files/9841398/Java.mini.Project.pdf) to download Report of this Project<br><br><br>
 - Some Snapshots<br><br>
